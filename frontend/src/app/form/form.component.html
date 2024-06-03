@@ -1,0 +1,25 @@
+<section class="book" id="book">
+
+    <h1 class="heading"><span>book</span>now</h1>
+    <div class="row">
+        <div class="image">
+            <img src="assets/image/apointment.jpg" alt="">
+        </div>
+        <form #frm="ngForm" method="post" (ngSubmit)="aug(frm.value)">
+            <h3>book appointment</h3>
+            <input type="text" placeholder="your name" required #name="ngModel"pattern="[a-zA-Z ]+$" class="box" name="name" [ngModel]>
+            <br><span *ngIf="name.invalid && name.touched" style="color: red; font-size: medium;">please enter valid name</span><br>
+
+            <input type="tel" placeholder="your number"  required #number="ngModel" maxlength="10" class="box" name="number" [ngModel]>
+            <br><span *ngIf="number.invalid && number.touched" style="color: red; font-size: medium;">please enter valid 10 digit no</span><br>
+
+            <input type="email" placeholder="your email" required #email="ngModel" email="" class="box" name="email" [ngModel]>
+            <br><span *ngIf="email.invalid && email.touched" style="color: red; font-size: medium;">please enter valid email</span><br>
+
+            <input type="date"  class="box" name="date" [ngModel]>
+            <button  type="submit" onclick="alert('form submited')" value="book now" class="btn"  [disabled]="frm.invalid">Submit</button>
+</form>
+    </div>
+    
+    </section>
+    
